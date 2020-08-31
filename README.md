@@ -17,3 +17,33 @@ The API contains the following endpoints:
 ####For a particular timing, a maximum of 20 tickets can be booked
 
 All the endpoints are tested using postman and the screenshots are included in the repository.
+
+### The Schema for the DB is 
+```
+TicketID: {
+        type: String,
+        required: true
+    },
+    User: {
+        type: String,
+        required: true
+    },
+    PhoneNumber: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    Movie: {
+        type: String,
+        required: true
+    },
+    Timings: {
+        type: Date,
+    },
+    Expiry: {
+        type: Date,
+        default: function() { 
+            return new Date(Date.now() + 60*60*8);
+        }
+    }
+```
